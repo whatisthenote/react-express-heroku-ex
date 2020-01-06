@@ -1,8 +1,15 @@
 const express = require("express");
+const bodyParser = require("body-parser");
+const path = require("path");
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(port));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); // API calls
+
+app.get("/api/hello", (req, res) => {
+  res.send({ express: "Hello From Express" });
+});
 
 if (process.env.NODE_ENV === "production") {
   // Serve any static files
@@ -12,6 +19,4 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.get("/backend", (req, res) => {
-  res.send({ express: "connected" });
-});
+app.listen(port, () => console.log(`Listening on port ${port}`));
