@@ -15,6 +15,6 @@ export default class App extends Component {
   }
 
   render() {
-    return <div>a, {this.state.data.express}</div>;
+    return <div>{this.state.data.express}</div>;
   }
 }
