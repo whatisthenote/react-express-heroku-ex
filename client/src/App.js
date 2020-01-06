@@ -15,6 +15,11 @@ export default class App extends Component {
   }
 
   render() {
-    return <div>{this.state.data.express}</div>;
+    return (
+      <div>
+        {this.state.data.var}
+        {console.log(this.state.data)}
+      </div>
+    );
   }
 }
