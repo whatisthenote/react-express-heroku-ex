@@ -11,10 +11,10 @@ export default class App extends Component {
   componentDidMount() {
     fetch("/backend")
       .then(res => res.json())
-      .then(console.log);
+      .then(data => this.setState({ data }));
   }
 
   render() {
-    return <div>a</div>;
+    return <div>a, {this.state.data.express}</div>;
   }
 }
