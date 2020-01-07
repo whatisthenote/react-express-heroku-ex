@@ -5,7 +5,9 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); // API calls
+app.use(bodyParser.urlencoded({ extended: true }));
+
+if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 app.get("/backend", (req, res) => {
   res.send({ var: process.env.ABC });
