@@ -13,6 +13,16 @@ app.get("/backend", (req, res) => {
   res.send({ var: process.env.ABC });
 });
 
+app.post("/postdata", (req, res) => {
+  const body = {
+    source: req.body.source,
+    amount: req.body.amount,
+    currency: "usd"
+  };
+
+  console.log(body);
+});
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
   app.get("*", function(req, res) {
